@@ -159,16 +159,18 @@ typedef struct {
 	int monitor;
 } Rule;
 
+<<<<<<< HEAD
 typedef struct Systray   Systray;
 struct Systray {
 	Window win;
 	Client *icons;
 };
-
+=======
 typedef struct {
 	const char** command;
 	const char* name;
 } Launcher;
+>>>>>>> ftr-launchers
 
 /* function declarations */
 static void applyrules(Client *c);
@@ -481,6 +483,9 @@ buttonpress(XEvent *e)
 			goto execute_handler;
 		} else if (ev->x < x + blw) {
 			click = ClkLtSymbol;
+<<<<<<< HEAD
+		else if (ev->x > selmon->ww - TEXTW(stext) - getsystraywidth())
+=======
 			goto execute_handler;
 		}
 
@@ -498,6 +503,7 @@ buttonpress(XEvent *e)
 		}
 
 		if (ev->x > selmon->ww - TEXTW(stext))
+>>>>>>> ftr-launchers
 			click = ClkStatusText;
 		else
 			click = ClkWinTitle;
@@ -851,6 +857,9 @@ drawbar(Monitor *m)
 	drw_setscheme(drw, scheme[SchemeNorm]);
 	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
 
+<<<<<<< HEAD
+	if ((w = m->ww - tw - stw - x) > bh) {
+=======
 	for (i = 0; i < LENGTH(launchers); i++)
 	{
 		w = TEXTW(launchers[i].name);
@@ -859,6 +868,7 @@ drawbar(Monitor *m)
 	}
 
 	if ((w = m->ww - tw - x) > bh) {
+>>>>>>> ftr-launchers
 		if (m->sel) {
 			drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);
 			drw_text(drw, x, 0, w, bh, lrpad / 2, m->sel->name, 0);
