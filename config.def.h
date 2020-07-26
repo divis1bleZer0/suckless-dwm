@@ -28,11 +28,15 @@ static const char *colors[][3]      = {
 static const char *tags[] = { "1", "2", "3", "4" };
 
 /* launcher commands (They must be NULL terminated) */
-static const char* surf[]      = { "surf", "duckduckgo.com", NULL };
+static const char* browser[]      = { "google-chrome-stable", "--new-window www.google.com", NULL };
+static const char* terminal[]      = { "st", NULL };
+static const char* files[]      = { "st", "-e", "ranger", NULL };
 
 static const Launcher launchers[] = {
        /* command       name to display */
-	{ surf,         "surf" },
+	{ browser,         " " },
+	{ terminal,        " " },
+	{ files,           " " },
 };
 
 static const Rule rules[] = {
