@@ -76,7 +76,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray2, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *killall[] =  { "pkill dwm", NULL };
+static const char *exitdwm[]  = { "pkill", "dwm", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -103,7 +103,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY|ShiftMask|ControlMask, XK_q,      spawn,          {.v = killall } },
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      spawn,          {.v = exitdwm } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -113,7 +113,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask|ControlMask, XK_r,      quit,           {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_r,      quit,           {0} },
 };
 
 /* button definitions */
