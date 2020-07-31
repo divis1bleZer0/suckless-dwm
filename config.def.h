@@ -79,6 +79,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray2, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *exitdwm[]  = { "pkill", "dwm", NULL };
+static const char *reboot[]  = { "reboot", NULL };
+static const char *poweroff[]  = { "poweroff", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -107,6 +109,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      spawn,          {.v = exitdwm } },
+	{ MODKEY|ControlMask|ShiftMask, XK_r,      spawn,          {.v = reboot } },
+	{ MODKEY|ControlMask|ShiftMask, XK_p,      spawn,          {.v = poweroff } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -116,7 +120,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ControlMask|ShiftMask, XK_r,      quit,           {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_Escape,   quit,            {0} },
 };
 
 /* button definitions */
