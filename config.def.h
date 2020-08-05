@@ -30,7 +30,7 @@ static const char *tags[] = { "1", "2", "3", "4" };
 /* launcher commands (They must be NULL terminated) */
 static const char* browser[]      = { "google-chrome-stable", "--new-window www.google.com", NULL };
 static const char* terminal[]      = { "st", NULL };
-static const char* files[]      = { "st", "-e", "ranger", NULL };
+static const char* files[]      = { "st", "-e", "vifm", NULL };
 
 static const Launcher launchers[] = {
        /* command       name to display */
@@ -95,7 +95,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Tab,    zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
+	{ MODKEY|ShiftMask,             XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
